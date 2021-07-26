@@ -1,6 +1,6 @@
-package com.emailapi.EmailApi.Repository;
+package com.emailapi.EmailApi.repository;
 
-import com.emailapi.EmailApi.Model.EmailUser;
+import com.emailapi.EmailApi.model.EmailUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
