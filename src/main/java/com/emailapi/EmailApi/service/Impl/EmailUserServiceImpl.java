@@ -1,8 +1,8 @@
-package com.emailapi.EmailApi.Service.Impl;
+package com.emailapi.EmailApi.service.Impl;
 
-import com.emailapi.EmailApi.Model.EmailUser;
-import com.emailapi.EmailApi.Repository.EmailUserRepository;
-import com.emailapi.EmailApi.Service.EmailUserService;
+import com.emailapi.EmailApi.model.EmailUser;
+import com.emailapi.EmailApi.repository.EmailUserRepository;
+import com.emailapi.EmailApi.service.EmailUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

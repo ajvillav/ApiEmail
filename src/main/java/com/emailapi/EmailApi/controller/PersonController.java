@@ -1,7 +1,7 @@
-package com.emailapi.EmailApi.Controller;
+package com.emailapi.EmailApi.controller;
 
-import com.emailapi.EmailApi.Model.Person;
-import com.emailapi.EmailApi.Service.PersonService;
+import com.emailapi.EmailApi.model.Person;
+import com.emailapi.EmailApi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

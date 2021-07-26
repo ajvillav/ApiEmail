@@ -1,6 +1,6 @@
-package com.emailapi.EmailApi.Service;
+package com.emailapi.EmailApi.service;
 
-import com.emailapi.EmailApi.Model.EmailUser;
+import com.emailapi.EmailApi.model.EmailUser;
 
 public interface EmailUserService {
 

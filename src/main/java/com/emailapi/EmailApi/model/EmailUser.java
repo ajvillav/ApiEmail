@@ -1,4 +1,4 @@
-package com.emailapi.EmailApi.Model;
+package com.emailapi.EmailApi.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
