@@ -3,10 +3,9 @@ package com.emailapi.EmailApi.controller;
 import com.emailapi.EmailApi.model.Person;
 import com.emailapi.EmailApi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/person")
@@ -20,5 +19,13 @@ public class PersonController {
         return personService.createPerson(person);
     }
 
+    @GetMapping(value = "/getPerson/{id}")
+    public Person getPerson(@PathVariable("id") Long personId) {
+        return personService.getPerson(personId);
+    }
 
+    @GetMapping(value = "/getPersonList")
+    public List<Person> getPersonList() {
+        return personService.getPersonList();
+    }
 }
