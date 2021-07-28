@@ -20,12 +20,18 @@ public class PersonController {
     }
 
     @GetMapping(value = "/getPerson/{id}")
-    public Person getPerson(@PathVariable("id") Long personId) {
-        return personService.getPerson(personId);
-    }
+    public Person getPerson(@PathVariable("id") Long personId) { return personService.getPerson(personId); }
 
     @GetMapping(value = "/getPersonList")
     public List<Person> getPersonList() {
         return personService.getPersonList();
     }
+
+    @DeleteMapping(value = "/deletePersonById/{id}")
+    public void deletePersonById(@PathVariable("id") Long personId) {
+        personService.deletePersonById(personId);
+    }
+
+    @PutMapping(value = "/updatePersonById/{id}")
+    public Person updatePerson(@RequestBody Person person, @PathVariable("id") Long personId){ return personService.updatePerson(person, personId); }
 }
