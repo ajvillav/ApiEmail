@@ -5,15 +5,15 @@ server:
 spring:
   # DB
   datasource:
-    url: jdbc:postgresql://ec2-52-45-183-77.compute-1.amazonaws.com:5432/d9c6ankl5cb1gj
-    driver-class-name: org.postgresql.Driver
-    username: jbqryelxzccrog
-    password: b3b66a13654a599aa6ee17033eb72accf472d2313a5829090f2176a2448811fc
+    url: jdbc:mysql://localhost:3306/test
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: aaax2530
 
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
 
 logging:

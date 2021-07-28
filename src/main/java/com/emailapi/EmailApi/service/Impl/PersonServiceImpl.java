@@ -28,4 +28,21 @@ public class PersonServiceImpl implements PersonService {
     public List<Person> getPersonList() {
         return personRepository.findAll();
     }
+
+    @Override
+    public void deletePersonById(Long personId) {
+        personRepository.deleteById(personId);
+    }
+
+    @Override
+    public Person updatePerson(Person person, Long personId) {
+        Person person1 = personRepository.findById(personId).orElse(null);
+        if (person1 != null) {
+            person.setPersonId(personId);
+            person1 = personRepository.save(person);
+        }
+
+        return person1;
+    }
+
 }
