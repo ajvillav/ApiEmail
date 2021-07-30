@@ -13,10 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import javax.validation.Valid;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 
 @Controller
@@ -56,6 +55,14 @@ public class EmailUserPersonController {
         } else {
             return notFoundException.Exception("This person already exist.");
         }
+    }
+
+    @DeleteMapping(value = "/deletePersonById/{id}")
+    public void deleteEmailUserPersonById(@PathVariable("id") UUID personId) {
+        Person person = personService.getPerson(personId);
+        EmailUser emailUser = emailUserService.findAllByPersonId(person);
+        emailUserService.deleteEmailUserById(emailUser.getUserId());
+        personService.deletePersonById(personId);
     }
 
 

@@ -10,8 +10,7 @@ import java.util.UUID;
 public class EmailUserResponseDto {
 
     private UUID userId;
-
+    private UUID personId;
     private String userEmail;
-
     private String userPassword;
 }

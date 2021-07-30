@@ -1,6 +1,7 @@
 package com.emailapi.EmailApi.service.Impl;
 
 import com.emailapi.EmailApi.model.EmailUser;
+import com.emailapi.EmailApi.model.Person;
 import com.emailapi.EmailApi.repository.EmailUserRepository;
 import com.emailapi.EmailApi.service.EmailUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,10 @@ public class EmailUserServiceImpl implements EmailUserService {
         }
 
         return emailUser1;
+    }
+
+    @Override
+    public EmailUser findAllByPersonId(Person person) {
+        return emailUserRepository.findAllByPersonId(person);
     }
 }
