@@ -33,7 +33,7 @@ public class EmailUserPersonController {
     NotFoundException notFoundException;
 
     @PostMapping(value = "/createEmailUserPerson")
-    public ResponseEntity<?> createEmailUserPerson(@Valid @RequestBody EmailUserPersonRequestDto emailUserPersonRequestDto) {
+    public ResponseEntity<?> createEmailUserPerson(@RequestBody EmailUserPersonRequestDto emailUserPersonRequestDto) {
         Person existPerson = personService.findFirstByIdentificationNumber(emailUserPersonRequestDto.getIdentificationNumber());
         if (existPerson == null) {
             Person personToSave = Person.builder()
@@ -54,7 +54,6 @@ public class EmailUserPersonController {
             return ResponseEntity.status(HttpStatus.CREATED).body(responseDto(personResponse, emailUserResponse));
 
         } else {
-
             return notFoundException.Exception("This person already exist.");
         }
     }
@@ -72,8 +71,8 @@ public class EmailUserPersonController {
                 .userPassword(emailUserResponse.getUserPassword())
                 .build();
 
-        return EmailUserPersonDataResponseDto.builder().personResponseDto(personResponseDto)
-                .emailUserResponseDto(emailUserResponseDto).build();
+        return EmailUserPersonDataResponseDto.builder().person(personResponseDto)
+                .userEmail(emailUserResponseDto).build();
 
     }
 

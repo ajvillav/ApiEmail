@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 public class EmailUserPersonDataResponseDto {
 
-    EmailUserResponseDto emailUserResponseDto;
-    PersonResponseDto personResponseDto;
+    PersonResponseDto person;
+    EmailUserResponseDto userEmail;
 
 }
