@@ -3,16 +3,19 @@ package com.emailapi.EmailApi.service;
 import com.emailapi.EmailApi.model.Person;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface PersonService {
 
     Person createPerson(Person person);
 
-    Person getPerson(Long personId);
+    Person getPerson(UUID personId);
 
     List<Person> getPersonList();
 
-    void deletePersonById(Long personId);
+    void deletePersonById(UUID personId);
 
-    Person updatePerson(Person person, Long personId);
+    Person updatePerson(Person person, UUID personId);
+
+    Person findFirstByIdentificationNumber(int identificationNumber);
 }

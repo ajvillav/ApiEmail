@@ -1,18 +1,22 @@
 package com.emailapi.EmailApi.service;
 
 import com.emailapi.EmailApi.model.EmailUser;
+import com.emailapi.EmailApi.model.Person;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface EmailUserService {
 
     EmailUser createEmailUser(EmailUser emailUser);
 
-    EmailUser getEmailUserById(Long userId);
+    EmailUser getEmailUserById(UUID userId);
 
     List<EmailUser> getEmailUserList();
 
-    void deleteEmailUserById(Long userId);
+    void deleteEmailUserById(UUID userId);
 
-    EmailUser updateEmailUser(EmailUser emailUser, Long userId);
+    EmailUser updateEmailUser(EmailUser emailUser, UUID userId);
+
+    EmailUser findAllByPersonId(Person person);
 }

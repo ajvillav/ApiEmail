@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class PersonServiceImpl implements PersonService {
@@ -20,7 +21,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person getPerson(Long personId) {
+    public Person getPerson(UUID personId) {
         return personRepository.findById(personId).orElse(null);
     }
 
@@ -30,12 +31,12 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public void deletePersonById(Long personId) {
+    public void deletePersonById(UUID personId) {
         personRepository.deleteById(personId);
     }
 
     @Override
-    public Person updatePerson(Person person, Long personId) {
+    public Person updatePerson(Person person, UUID personId) {
         Person person1 = personRepository.findById(personId).orElse(null);
         if (person1 != null) {
             person.setPersonId(personId);
@@ -43,6 +44,11 @@ public class PersonServiceImpl implements PersonService {
         }
 
         return person1;
+    }
+
+    @Override
+    public Person findFirstByIdentificationNumber(int identificationNumber) {
+        return personRepository.findAllByIdentificationNumber(identificationNumber);
     }
 
 }
