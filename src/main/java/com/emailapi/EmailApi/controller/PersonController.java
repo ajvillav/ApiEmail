@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/person")
 public class PersonController {
 
     @Autowired
-    public PersonService personService;
+    private PersonService personService;
 
     @PostMapping(value = "/createPerson")
     public Person createPerson(@RequestBody Person person) {
@@ -20,7 +21,7 @@ public class PersonController {
     }
 
     @GetMapping(value = "/getPerson/{id}")
-    public Person getPerson(@PathVariable("id") Long personId) { return personService.getPerson(personId); }
+    public Person getPerson(@PathVariable("id") UUID personId) { return personService.getPerson(personId); }
 
     @GetMapping(value = "/getPersonList")
     public List<Person> getPersonList() {
@@ -28,10 +29,10 @@ public class PersonController {
     }
 
     @DeleteMapping(value = "/deletePersonById/{id}")
-    public void deletePersonById(@PathVariable("id") Long personId) {
+    public void deletePersonById(@PathVariable("id") UUID personId) {
         personService.deletePersonById(personId);
     }
 
     @PutMapping(value = "/updatePersonById/{id}")
-    public Person updatePerson(@RequestBody Person person, @PathVariable("id") Long personId){ return personService.updatePerson(person, personId); }
+    public Person updatePerson(@RequestBody Person person, @PathVariable("id") UUID personId){ return personService.updatePerson(person, personId); }
 }

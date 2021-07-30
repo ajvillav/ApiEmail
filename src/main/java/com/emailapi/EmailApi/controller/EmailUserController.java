@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/EmailUser")
 public class EmailUserController {
 
     @Autowired
-    public EmailUserService emailUserService;
+    private EmailUserService emailUserService;
 
     @PostMapping(value = "/createEmailUser")
     public EmailUser createEmailUser(@RequestBody EmailUser emailUser) {
@@ -20,7 +21,7 @@ public class EmailUserController {
     }
 
     @GetMapping(value = "/getEmailUserById/{id}")
-    public EmailUser getEmailUserById(@PathVariable("id") Long userId) {
+    public EmailUser getEmailUserById(@PathVariable("id") UUID userId) {
         return emailUserService.getEmailUserById(userId);
     }
 
@@ -30,12 +31,12 @@ public class EmailUserController {
     }
 
     @DeleteMapping(value = "/deleteEmailUserById/{id}")
-    public void deleteEmailUserById(@PathVariable("id") Long userId) {
+    public void deleteEmailUserById(@PathVariable("id") UUID userId) {
         emailUserService.deleteEmailUserById(userId);
     }
 
     @PutMapping(value = "/updateEmailUser/{id}")
-    public EmailUser updateEmailUser(@RequestBody EmailUser emailUser, @PathVariable("id") Long userId) {
+    public EmailUser updateEmailUser(@RequestBody EmailUser emailUser, @PathVariable("id") UUID userId) {
         return emailUserService.updateEmailUser(emailUser, userId);
     }
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class EmailUserServiceImpl implements EmailUserService {
@@ -20,7 +21,7 @@ public class EmailUserServiceImpl implements EmailUserService {
     }
 
     @Override
-    public EmailUser getEmailUserById(Long userId) {
+    public EmailUser getEmailUserById(UUID userId) {
         return emailUserRepository.findById(userId).orElse(null);
     }
 
@@ -30,12 +31,12 @@ public class EmailUserServiceImpl implements EmailUserService {
     }
 
     @Override
-    public void deleteEmailUserById(Long userId) {
+    public void deleteEmailUserById(UUID userId) {
         emailUserRepository.deleteById(userId);
     }
 
     @Override
-    public EmailUser updateEmailUser(EmailUser emailUser, Long userId) {
+    public EmailUser updateEmailUser(EmailUser emailUser, UUID userId) {
         EmailUser emailUser1 = emailUserRepository.findById(userId).orElse(null);
         if (emailUser1 != null) {
             emailUser.setUserId(userId);
