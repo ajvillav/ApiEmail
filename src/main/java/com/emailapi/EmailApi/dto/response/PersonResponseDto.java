@@ -10,12 +10,8 @@ import java.util.UUID;
 public class PersonResponseDto {
 
     private UUID personId;
-
     private int identificationNumber;
-
     private String personName;
-
     private String personLastName;
-
     private String residenceCity;
 }
